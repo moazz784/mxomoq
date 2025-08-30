@@ -110,3 +110,31 @@ span{
     
     }
 }
+.parent{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 60px;
+    padding-bottom: 55px;
+
+    img{
+        width:230.5px ;
+        height:240px ;
+        flex-grow: 1; 
+        object-fit: cover;
+    }
+}
+@media screen and (max-width:767px) {
+    .parent{
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .parent img{
+        max-width: 80%;
+        height: auto;
+        aspect-ratio: 1/1;
+    }
+}
