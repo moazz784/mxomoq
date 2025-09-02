@@ -141,3 +141,77 @@ span{
         aspect-ratio: 1/1;
     }
 }
+.son{
+    width: 100%;
+   min-height: 1050px;
+    background-image: url(./photo/-min\ nnnnnn.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+   
+    .contact{
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-top: 400px;
+        
+        
+    }
+}
+.card{
+    width: 320.325px;
+    max-width: 90%;
+    background-color: rgba(51, 51, 51, 0.649);
+    display: flex;
+
+
+    flex-direction: column;
+   
+    
+    .one{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 27px;
+        h1{
+            font-size: 48px;
+            font-weight: 400;
+            margin: 0px 5px;
+            color: white;
+            background-color: red;
+            border-radius: 50%;
+            padding: 10px;
+            font-family: "Roboto", sans-serif;
+        }
+        h2{
+            font-size: 27px;
+            font-weight: 500;
+            margin: 15px 5px;
+            color: white;
+            font-family: "Roboto", sans-serif;
+        }
+    }
+    .two{
+        font-size: 16px;
+        line-height: 25px;
+        padding: 10px 15px;
+        margin-top: 20px;
+        color:rgb(179, 179, 179);
+    }
+    .three{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 15px;
+        a{
+            font-size: 18px;
+            font-weight: 400;
+            color: white;
+            border-bottom: 2px solid rgb(255, 255, 255);
+        }
+    }
+}
