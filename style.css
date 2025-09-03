@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -261,15 +263,18 @@ span{
         font-weight: 700;
         /* line-height: 39px; */
         color: black;
+        font-family: "Story Script", sans-serif;
     }
     p{
         font-size: 16px;
         line-height: 32px;
         color: rgb(17, 17, 17);
         padding-left: 15px;
+        font-family: "Story Script", sans-serif;
     }
     button{
         font-size: 18px;
+        /* font-family: "Story Script", sans-serif; */
         font-weight: 700;
         font-family: "Roboto", sans-serif;
         background-color: rgb(232, 25, 34);
@@ -282,4 +287,10 @@ span{
         margin-top: 15px;
         padding: 0px 15px;
     }
+}
+@media screen and (max-width:767px) {
+   /* .uncle .first{
+    width: 100%;
+   }  */
+    
 }
