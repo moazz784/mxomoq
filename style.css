@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 
 *{
     padding: 0;
@@ -181,7 +182,6 @@ span{
             background-color: red;
             border-radius: 50%;
             padding: 10px;
-            /* font-family: "Roboto", sans-serif; */
             font-family: "Story Script", sans-serif;
         }
         h2{
@@ -189,7 +189,6 @@ span{
             font-weight: 500;
             margin: 15px 5px;
             color: white;
-            /* font-family: "Roboto", sans-serif; */
             font-family: "Story Script", sans-serif;
         }
     }
@@ -240,8 +239,6 @@ span{
     transform: translate(-50%,-50%);
     img{
         width: 770px;
-        /* max-width: 90%; */
-        /* max-width: 80%; */
         height: 637px;
     }
 }
@@ -261,7 +258,6 @@ span{
     h1{
         font-size: 36px;
         font-weight: 700;
-        /* line-height: 39px; */
         color: black;
         font-family: "Story Script", sans-serif;
     }
@@ -274,7 +270,6 @@ span{
     }
     button{
         font-size: 18px;
-        /* font-family: "Story Script", sans-serif; */
         font-weight: 700;
         font-family: "Roboto", sans-serif;
         background-color: rgb(232, 25, 34);
@@ -288,9 +283,69 @@ span{
         padding: 0px 15px;
     }
 }
-@media screen and (max-width:767px) {
-   /* .uncle .first{
+.beauty{
     width: 100%;
-   }  */
+    min-height: 100vh;
+    background-image: url(./photo/pizaa\ photo.jpg);
+    background-position: center;
+    background-size: cover;
+    /* background-position: 100%; */
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+    
+}
+.conta{
+    h2{
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        font-weight: 700;
+        font-family: "Alata", sans-serif;
+    }
+    h1{
+        font-size: 96px;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+        line-height: 105px;
+        padding: 25px 0px;
+        font-family: "Alata", sans-serif;
+    }
+    h3{
+        color: rgb(255, 255, 255);
+        margin-bottom: 18px;
+        font-family: "Alata", sans-serif;
+        font-size: 18px;
+        span{
+            border-bottom: 2px solid red;
+        }
+    }
+    button{
+        font-size: 18px;
+        font-weight: 700;
+        font-family: "Roboto", sans-serif;
+        background-color: rgb(232, 25, 34);
+        color: white;
+        width: 229.113px;
+        line-height: 25px;
+        border: 0;
+        height: 55px;
+        border-radius: 25px;
+        margin-top: 15px;
+        padding: 0px 15px;
+        cursor: pointer;
+    }
+}
+@media screen and (max-width:767px) {
+    .beauty{
+        padding-left:40px ;
+        background-position: 50% center;
+    }
+    .conta h1{
+        font-size: 70px;
+        line-height: 80px;
+    }
+    .conta button{
+        width: 200px;
+    }
     
 }
