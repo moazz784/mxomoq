@@ -26,8 +26,8 @@
 <div class="main">
     
 <div class="left">
-<h1 class=" wow animate__animated animate__slideInLeft">Dining</h1>
-<h2 class=" wow animate__animated animate__slideInLeft">On The Lake</h2>
+<h1 class="wow animate__animated animate__slideInLeft">Dining</h1>
+<h2 class="wow animate__animated animate__slideInLeft">On The Lake</h2>
 <P>Ullamcorper malesuada proin libero nunc. Id semper risus in hendrerit gravida. Vulputate <span>sapien nec</span> sagittis aliquam malesuada bibendum. </P>
 <p>Images from <span>freepik</span></p>
 <button>VIEW MENU</button>
@@ -110,8 +110,8 @@
 </div>
 <div class="card">
   <div class="one">
-    <h1 class="wow animate__animated animate__backInLeft " data-wow-duration="1.5s">06</h1>
-    <h2 class="wow animate__animated animate__backInRight " data-wow-duration="1.5s" >Vegan Dishes</h2>
+    <h1 class="wow animate__animated animate__backInLeft">06</h1>
+    <h2 class="wow animate__animated animate__backInRight">Vegan Dishes</h2>
   </div>
   <div class="two">
     <p>Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
@@ -136,8 +136,63 @@
 
 
   <script src="js/wow.min.js"></script>
-              <script>
-              new WOW().init();
-              </script>  
+<script>
+  // 1) init WOW globally (مهم يكون window.wow علشان نقدر نستخدم wow.show)
+  window.wow = new WOW({
+    boxClass: 'wow',
+    animateClass: 'animate_animated', // animate.css v4 uses 'animate_' prefix
+    offset: 0,
+    mobile: true,
+    live: true
+  });
+  wow.init();
+
+  // 2) small CSS guard (لو حابب تحطه في style.css بدال ما يضاف هنا)
+  (function(){
+    var css = '.wow{visibility:hidden} .wow.animate__animated{visibility:visible}';
+    var s = document.createElement('style'); s.appendChild(document.createTextNode(css));
+    document.head.appendChild(s);
+  })();
+
+  // 3) save original animation class names (مثل animate__slideInLeft) لكل عنصر .wow
+  document.querySelectorAll('.wow').forEach(function(el){
+    var anims = Array.from(el.classList).filter(function(c){
+      return c.startsWith('animate_') && c !== 'animate_animated';
+    });
+    el.dataset.wowAnims = anims.join(' ');
+  });
+
+  // 4) IntersectionObserver: عند دخول العنصر للـ viewport نعيد تشغيله،
+  // عند خروجه نزيل كلاسات الأنيميشن علشان يقدر يتعاد لاحقًا.
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var el = entry.target;
+      if (entry.isIntersecting) {
+        // re-add saved animation classes
+        var anims = el.dataset.wowAnims ? el.dataset.wowAnims.split(' ') : [];
+        anims.forEach(function(a){ if (a) el.classList.add(a); });
+
+        // best: use wow.show إذا موجود (يضبط كل حاجة داخل المكتبة)
+        if (window.wow && typeof window.wow.show === 'function') {
+          // تأخير صغير علشان لو applyStyle لازم يكمّل
+          setTimeout(function(){ wow.show(el); }, 20);
+        } else {
+          // fallback بسيط
+          el.classList.add('animate__animated');
+        }
+      } else {
+        // remove animation classes so it can re-trigger next time
+        el.classList.remove('animate__animated');
+        var anims = el.dataset.wowAnims ? el.dataset.wowAnims.split(' ') : [];
+        anims.forEach(function(a){ if (a) el.classList.remove(a); });
+        el.style.visibility = 'hidden';
+      }
+    });
+  }, { threshold: 0.2 });
+
+  // start observing
+  document.querySelectorAll('.wow').forEach(function(el){ io.observe(el); });
+
+</script>
 </body>
 </html>
